@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 
-class Habbit extends Component {
+class Habbit extends PureComponent {
     handleIncrement = () => {
         this.props.onIncrement(this.props.habbit);
     }

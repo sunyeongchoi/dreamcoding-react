@@ -1,23 +1,22 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 
-class AddHabbit extends Component {
-    state = {
-      addHabbit: []
-    }
-    handleChange = (e) => {
-        console.log(e.target.value)
-        const newHabbit = {id: Math.random(), name: e.target.value, count: 0};
-        const habbits = [...this.props.state.habbits, newHabbit];
-        this.setState({ addHabbit: habbits })
+class AddHabbit extends PureComponent {
+    inputRef = React.createRef();
+    onSubmit = (e) => {
+        e.preventDefault();
+        this.props.onAdd(this.inputRef.current.value);
+        this.inputRef.current.value = '';
     }
     render() {
+        
         return (
-            <div>
-                <input type="text" onChange={(e) => this.handleChange(e)} />
-                <button className='add-habit' onClick={() => this.props.onAdd(this.state.addHabbit)}>
+            <form className='add-form' onSubmit={this.onSubmit}>
+                <input type="text" ref={this.inputRef} />
+                <button className='add-habit'>
                     Add
                 </button>
-            </div>
+                <button className="add-button"></button>
+            </form>
         );
     }
 }

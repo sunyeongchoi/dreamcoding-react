@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import Habbit from './habbit';
 
-class Habbits extends Component {
+class Habbits extends PureComponent {
 
     render() {
         return (
