@@ -1,6 +1,13 @@
 import React, { PureComponent } from 'react';
 
 class Habbit extends PureComponent {
+    componentDidMount() {
+        console.log(`${this.props.habbit.name} mount`)
+    }
+
+    componentWillUnmount() {
+        console.log(`${this.props.habbit.name} will unmount`)
+    }
     handleIncrement = () => {
         this.props.onIncrement(this.props.habbit);
     }
