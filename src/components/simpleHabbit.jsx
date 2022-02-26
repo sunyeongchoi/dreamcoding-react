@@ -3,8 +3,9 @@ import React, { useCallback } from 'react';
 const SimpleHabbit = () => {
     const [count, setCount] = React.useState(0);
     const handleIncrement = useCallback(() => {
-        setCount(count + 1);
-    }, [count])
+        // setCount(count + 1);
+        setCount(state =>  state + 1);
+    }, [])
     return (
         <li className='habbit'>
             <span className='habbit-count'>{count}</span>
